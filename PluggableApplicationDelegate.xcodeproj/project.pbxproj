@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		3B0791942087363400A39104 /* PluggableApplicationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B0791922087363400A39104 /* PluggableApplicationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B07919B2087364400A39104 /* PluggableApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B07919A2087364400A39104 /* PluggableApplicationDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B07918F2087363400A39104 /* PluggableApplicationDelegate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PluggableApplicationDelegate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B0791922087363400A39104 /* PluggableApplicationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PluggableApplicationDelegate.h; sourceTree = "<group>"; };
 		3B0791932087363400A39104 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B07919A2087364400A39104 /* PluggableApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluggableApplicationDelegate.swift; sourceTree = "<group>"; };
+		3B07919C208736AD00A39104 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +33,7 @@
 		3B0791852087363400A39104 = {
 			isa = PBXGroup;
 			children = (
+				3B07919C208736AD00A39104 /* README.md */,
 				3B0791912087363400A39104 /* PluggableApplicationDelegate */,
 				3B0791902087363400A39104 /* Products */,
 			);
@@ -48,6 +52,7 @@
 			children = (
 				3B0791922087363400A39104 /* PluggableApplicationDelegate.h */,
 				3B0791932087363400A39104 /* Info.plist */,
+				3B07919A2087364400A39104 /* PluggableApplicationDelegate.swift */,
 			);
 			path = PluggableApplicationDelegate;
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 				TargetAttributes = {
 					3B07918E2087363400A39104 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 				};
 			};
@@ -130,6 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B07919B2087364400A39104 /* PluggableApplicationDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +266,7 @@
 		3B0791982087363400A39104 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -276,6 +284,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.inloopx.PluggableApplicationDelegate;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -284,6 +293,7 @@
 		3B0791992087363400A39104 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
