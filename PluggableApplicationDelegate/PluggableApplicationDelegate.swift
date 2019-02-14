@@ -27,6 +27,9 @@ public protocol ApplicationService {
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error)
+
+    func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool
+    func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool
 }
 
 // MARK: - Optionals
@@ -48,6 +51,14 @@ public extension ApplicationService {
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {}
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {}
+
+    func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
+        return false
+    }
+
+    func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
+        return false
+    }
 }
 
 open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
@@ -129,5 +140,19 @@ public extension PluggableApplicationDelegate {
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         lazyServices.forEach { $0.application(application, didFailToRegisterForRemoteNotificationsWithError: error) }
+    }
+}
+
+public extension PluggableApplicationDelegate {
+    public func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
+        return lazyServices.reduce(false) { prev, service in
+            return prev || service.application(application, shouldSaveApplicationState: coder)
+        }
+    }
+
+    public func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
+        return lazyServices.reduce(false) { prev, service in
+            return prev || service.application(application, shouldRestoreApplicationState: coder)
+        }
     }
 }
