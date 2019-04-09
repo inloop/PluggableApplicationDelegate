@@ -100,7 +100,7 @@
 				TargetAttributes = {
 					3B07918E2087363400A39104 = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -110,6 +110,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 3B0791852087363400A39104;
 			productRefGroup = 3B0791902087363400A39104 /* Products */;
@@ -286,7 +287,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -313,7 +314,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.inloopx.PluggableApplicationDelegate;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

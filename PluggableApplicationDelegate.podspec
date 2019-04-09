@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.license       = "MIT"
   s.author        = { "INLOOPX" => "info@inloopx.com" }
   s.platform      = :ios, "8.0"
-  s.swift_version = "4.2"
+  s.swift_version = "5.0"
   s.source        = { :git => "https://github.com/inloop/PluggableApplicationDelegate.git", :tag => "v#{s.version}" }
   s.source_files  = "PluggableApplicationDelegate", "PluggableApplicationDelegate/**/*.{h,m,swift}"
   s.exclude_files = "Classes/Exclude"

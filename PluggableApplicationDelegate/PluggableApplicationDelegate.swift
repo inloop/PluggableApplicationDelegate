@@ -144,13 +144,13 @@ public extension PluggableApplicationDelegate {
 }
 
 public extension PluggableApplicationDelegate {
-    public func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
+    func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
         return lazyServices.reduce(false) { prev, service in
             return prev || service.application(application, shouldSaveApplicationState: coder)
         }
     }
 
-    public func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
+    func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
         return lazyServices.reduce(false) { prev, service in
             return prev || service.application(application, shouldRestoreApplicationState: coder)
         }
