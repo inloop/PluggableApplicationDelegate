@@ -30,6 +30,8 @@ public protocol ApplicationService {
 
     func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool
     func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool
+
+    func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplication.ExtensionPointIdentifier) -> Bool
 }
 
 // MARK: - Optionals
@@ -58,6 +60,10 @@ public extension ApplicationService {
 
     func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
         return false
+    }
+
+    func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplication.ExtensionPointIdentifier) -> Bool {
+        return true
     }
 }
 
@@ -153,6 +159,14 @@ public extension PluggableApplicationDelegate {
     func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
         return lazyServices.reduce(false) { prev, service in
             return prev || service.application(application, shouldRestoreApplicationState: coder)
+        }
+    }
+}
+
+public extension PluggableApplicationDelegate {
+    func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplication.ExtensionPointIdentifier) -> Bool {
+        return lazyServices.reduce(true) { prev, service in
+            return prev && service.application(application, shouldAllowExtensionPointIdentifier: extensionPointIdentifier)
         }
     }
 }
