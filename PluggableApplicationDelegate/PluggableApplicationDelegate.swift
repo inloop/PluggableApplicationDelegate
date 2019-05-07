@@ -25,7 +25,7 @@ public protocol ApplicationService {
     func applicationWillTerminate(_ application: UIApplication)
     func applicationDidReceiveMemoryWarning(_ application: UIApplication)
     
-    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]?) -> Bool
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error)
@@ -51,7 +51,7 @@ public extension ApplicationService {
     func applicationWillTerminate(_ application: UIApplication) {}
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {}
     
-    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
         return false
     }
 
@@ -140,7 +140,7 @@ public extension PluggableApplicationDelegate {
 
 public extension PluggableApplicationDelegate {
 
-    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         return lazyServices.reduce(false) { prev, service in
             return prev || service.application(application, open: url, options: options ?? [:])
         }
