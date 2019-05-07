@@ -50,6 +50,10 @@ public extension ApplicationService {
 
     func applicationWillTerminate(_ application: UIApplication) {}
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {}
+    
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]?) -> Bool {
+        return false
+    }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {}
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {}
